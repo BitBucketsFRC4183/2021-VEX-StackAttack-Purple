@@ -18,18 +18,22 @@
 
 using namespace vex;
 
+void turnRobot() {
+  if(Controller1.Axis1.position()>0) {
+  Drivetrain.turn(right);
+}
+
+
+if(Controller1.Axis1.position()<0) {
+  Drivetrain.turn(left);
+}
+}
 int main() {
   // Initializing Robot Configuration. DO NOT REMOVE!
 vexcodeInit();
-void turnRobot() {
 
-if(true) {CONTROLLER1.Axis1.position(positive)}
-Drivetrain.turn(right);
 Drivetrain.setTurnVelocity(50, percent);
 
-if(true) {CONTROLLER1.Axis1.position(negative)};
-Drivetrain.turn(left);dd
-Drivetrain.setTurnVelocity(50, percent);
 Controller1.Axis1.changed(turnRobot);
 
 }
