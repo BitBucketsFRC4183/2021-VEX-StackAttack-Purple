@@ -18,6 +18,19 @@
 
 using namespace vex;
 
+void moveForward() {
+if(Controller1.Axis3.position()>0) {
+  Drivetrain.drive(forward);
+  Drivetrain.setDriveVelocity(50, percent);
+  }
+
+if(Controller1.Axis3.position()<0) {
+  Drivetrain.drive(forward);
+  Drivetrain.setDriveVelocity(-50, percent);
+  }
+
+}
+
 void turnRobot() {
   if(Controller1.Axis1.position()>0) {
   Drivetrain.turn(right);
@@ -34,6 +47,9 @@ vexcodeInit();
 
 Drivetrain.setTurnVelocity(50, percent);
 
+Drivetrain.setDriveVelocity(50, percent);
+
 Controller1.Axis1.changed(turnRobot);
+
 
 }
