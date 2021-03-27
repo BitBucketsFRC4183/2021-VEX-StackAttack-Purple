@@ -18,7 +18,6 @@
 
 using namespace vex;
 
-<<<<<<< Updated upstream
 void moveForward() {
 if(Controller1.Axis3.position()>0) {
   Drivetrain.drive(forward);
@@ -42,39 +41,6 @@ if(Controller1.Axis1.position()<0) {
   Drivetrain.turn(left);
 }
 }
-int main() {
-  // Initializing Robot Configuration. DO NOT REMOVE!
-vexcodeInit();
-
-Drivetrain.setTurnVelocity(50, percent);
-
-Drivetrain.setDriveVelocity(50, percent);
-
-Controller1.Axis1.changed(turnRobot);
-
-
-=======
-void driveRobot() {
-  if (Controller1.Axis1.position() == 0) {
-    Drivetrain.stop();
-  }
-
-  if (Controller1.Axis1.position() > 0) {
-    Drivetrain.drive(forward);
-  } else {
-    Drivetrain.drive(reverse);
-  }
-}
-
-void turnRobot() {
-  if(Controller1.Axis2.position() > 0) {
-    Drivetrain.turn(right);
-  }
-
-    if (Controller1.Axis2.position() < 0) {
-    Drivetrain.turn(left);
-  }
-}
 
 void testAuton() {
   //I made this assuming that the bot is facing south at the middle of home
@@ -89,13 +55,13 @@ void testAuton() {
 
 int main() {
   // Initializing Robot Configuration. DO NOT REMOVE!
-  vexcodeInit();
-  
-  Drivetrain.setTurnVelocity(50, percent);
-  Drivetrain.setDriveVelocity(50, percent);
+vexcodeInit();
 
-  Controller1.Axis1.changed(driveRobot);
-  Controller1.Axis2.changed(turnRobot);
->>>>>>> Stashed changes
+Drivetrain.setTurnVelocity(50, percent);
+
+Drivetrain.setDriveVelocity(50, percent);
+
+Controller1.Axis1.changed(turnRobot);
+
+
 }
-
