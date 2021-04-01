@@ -26,26 +26,26 @@ if(Controller1.Axis3.position()>0) {
   Drivetrain.setDriveVelocity(50, percent);
   }
 
-if(Controller1.Axis3.position()<0) {
+else if(Controller1.Axis3.position()<0) {
   Drivetrain.drive(forward);
   Drivetrain.setDriveVelocity(-50, percent);
   }
-
+else
+Drivetrain.stop();
 }
 
 void turnRobot() {
   if(Controller1.Axis1.position()>0) {
   Drivetrain.turn(right);
 }
-
-
 if(Controller1.Axis1.position()<0) {
   Drivetrain.turn(left);
 }
 }
 
-int intakeSpeedPercent = 10;
-int reverseSpeedPercent = -10;
+double intakeSpeedPercent = 10.0;
+double leftIntakeSpeedPercent = 10.0;
+double rightIntakeSpeedPercent = 24.0 / 30 * leftIntakeSpeedPercent;
 
 void turnonIntake() {
   IntakeLeft.setVelocity(intakeSpeedPercent, percent);
@@ -55,9 +55,9 @@ void turnonIntake() {
 }
 
 void turnonIntakeReverse() {
-  IntakeLeft.setVelocity(reverseSpeedPercent, percent);
+  IntakeLeft.setVelocity(-leftIntakeSpeedPercent, percent);
   IntakeLeft.spin(forward);
-  IntakeRight.setVelocity(reverseSpeedPercent, percent);
+  IntakeRight.setVelocity(-leftIntakeSpeedPercent, percent);
   IntakeRight.spin(reverse);
 }
 
