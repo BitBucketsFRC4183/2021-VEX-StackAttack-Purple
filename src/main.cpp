@@ -12,6 +12,8 @@
 // [Name]               [Type]        [Port(s)]
 // Drivetrain           drivetrain    1, 2            
 // Controller1          controller                    
+// IntakeLeft           motor         3               
+// IntakeRight          motor         8               
 // ---- END VEXCODE CONFIGURED DEVICES ----
 
 #include "vex.h"
@@ -42,6 +44,20 @@ if(Controller1.Axis1.position()<0) {
 }
 }
 
+int IntakeSpeedPercent = 10;
+
+void turnonIntake() {
+  IntakeLeft.setVelocity(IntakeSpeedPercent, percent);
+  IntakeLeft.spin(forward);
+  IntakeRight.setVelocity(IntakeSpeedPercent, percent);
+  IntakeRight.spin(reverse);
+}
+
+void turnoffIntake() {
+  IntakeLeft.stop();
+  IntakeRight.stop();
+}
+
 void testAuton() {
   //I made this assuming that the bot is facing south at the middle of home
   Drivetrain.driveFor(forward, 24, inches);
@@ -63,5 +79,8 @@ Drivetrain.setDriveVelocity(50, percent);
 
 Controller1.Axis1.changed(turnRobot);
 
-
+Controller1.ButtonUp.pressed(turnonIntake);
+Controller1.ButtonUp.released(turnoffIntake);
+Controller1.ButtonDown.pressed(turnonIntake);
+Controller1.ButtonDown.released(turnoffIntake);
 }
