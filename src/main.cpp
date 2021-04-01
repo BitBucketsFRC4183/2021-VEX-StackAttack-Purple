@@ -10,7 +10,7 @@
 // ---- START VEXCODE CONFIGURED DEVICES ----
 // Robot Configuration:
 // [Name]               [Type]        [Port(s)]
-// Drivetrain           drivetrain    1, 2            
+// Drivetrain           drivetrain    1, 10           
 // Controller1          controller                    
 // IntakeLeft           motor         3               
 // IntakeRight          motor         8               
@@ -30,20 +30,28 @@ else if(Controller1.Axis3.position()<0) {
   Drivetrain.drive(forward);
   Drivetrain.setDriveVelocity(-50, percent);
   }
-else
+
+else {
 Drivetrain.stop();
 }
+}
+
+
 
 void turnRobot() {
   if(Controller1.Axis1.position()>0) {
   Drivetrain.turn(right);
 }
+
 else if(Controller1.Axis1.position()<0) {
   Drivetrain.turn(left);
 }
+
 else
 Drivetrain.stop();
 }
+
+
 
 double intakeSpeedPercent = 10.0;
 double leftIntakeSpeedPercent = 10.0;
@@ -68,6 +76,8 @@ void turnoffIntake() {
   IntakeRight.stop();
 }
 
+
+
 void testAuton() {
   //I made this assuming that the bot is facing south at the middle of home
   Drivetrain.driveFor(forward, 24, inches);
@@ -78,6 +88,8 @@ void testAuton() {
   Drivetrain.turnFor(left, 90, degrees);
   Drivetrain.driveFor(forward, 48, inches);
 }
+
+
 
 int main() {
   // Initializing Robot Configuration. DO NOT REMOVE!
