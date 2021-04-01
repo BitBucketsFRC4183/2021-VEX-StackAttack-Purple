@@ -38,9 +38,11 @@ void turnRobot() {
   if(Controller1.Axis1.position()>0) {
   Drivetrain.turn(right);
 }
-if(Controller1.Axis1.position()<0) {
+else if(Controller1.Axis1.position()<0) {
   Drivetrain.turn(left);
 }
+else
+Drivetrain.stop();
 }
 
 double intakeSpeedPercent = 10.0;
@@ -86,6 +88,7 @@ Drivetrain.setTurnVelocity(50, percent);
 Drivetrain.setDriveVelocity(50, percent);
 
 Controller1.Axis1.changed(turnRobot);
+Controller1.Axis3.changed(moveForward);
 
 Controller1.ButtonUp.pressed(turnonIntake);
 Controller1.ButtonUp.released(turnoffIntake);
