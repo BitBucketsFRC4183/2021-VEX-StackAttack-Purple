@@ -44,13 +44,21 @@ if(Controller1.Axis1.position()<0) {
 }
 }
 
-int IntakeSpeedPercent = 10;
+int intakeSpeedPercent = 10;
+int reverseSpeedPercent = -10;
 
 void turnonIntake() {
-  IntakeLeft.setVelocity(IntakeSpeedPercent, percent);
+  IntakeLeft.setVelocity(intakeSpeedPercent, percent);
   IntakeLeft.spin(forward);
-  IntakeRight.setVelocity(IntakeSpeedPercent, percent);
+  IntakeRight.setVelocity(intakeSpeedPercent, percent);
   IntakeRight.spin(reverse);
+}
+
+void turnonIntakeReverse() {
+  IntakeLeft.setVelocity(reverseSpeedPercent, percent);
+  IntakeLeft.spin(reverse);
+  IntakeRight.setVelocity(reverseSpeedPercent, percent);
+  IntakeRight.spin(forward);
 }
 
 void turnoffIntake() {
@@ -81,6 +89,6 @@ Controller1.Axis1.changed(turnRobot);
 
 Controller1.ButtonUp.pressed(turnonIntake);
 Controller1.ButtonUp.released(turnoffIntake);
-Controller1.ButtonDown.pressed(turnonIntake);
+Controller1.ButtonDown.pressed(turnonIntakeReverse);
 Controller1.ButtonDown.released(turnoffIntake);
 }
