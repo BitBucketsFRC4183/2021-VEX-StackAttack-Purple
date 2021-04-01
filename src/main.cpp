@@ -56,9 +56,9 @@ void turnonIntake() {
 
 void turnonIntakeReverse() {
   IntakeLeft.setVelocity(reverseSpeedPercent, percent);
-  IntakeLeft.spin(reverse);
+  IntakeLeft.spin(forward);
   IntakeRight.setVelocity(reverseSpeedPercent, percent);
-  IntakeRight.spin(forward);
+  IntakeRight.spin(reverse);
 }
 
 void turnoffIntake() {
