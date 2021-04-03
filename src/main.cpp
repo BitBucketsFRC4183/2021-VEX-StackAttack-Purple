@@ -53,21 +53,20 @@ Drivetrain.stop();
 
 
 
-double intakeSpeedPercent = 10.0;
 double leftIntakeSpeedPercent = 10.0;
 double rightIntakeSpeedPercent = 24.0 / 30 * leftIntakeSpeedPercent;
 
 void turnonIntake() {
-  IntakeLeft.setVelocity(intakeSpeedPercent, percent);
+  IntakeLeft.setVelocity(leftIntakeSpeedPercent, percent);
   IntakeLeft.spin(forward);
-  IntakeRight.setVelocity(intakeSpeedPercent, percent);
+  IntakeRight.setVelocity(rightIntakeSpeedPercent, percent);
   IntakeRight.spin(reverse);
 }
 
 void turnonIntakeReverse() {
   IntakeLeft.setVelocity(-leftIntakeSpeedPercent, percent);
   IntakeLeft.spin(forward);
-  IntakeRight.setVelocity(-leftIntakeSpeedPercent, percent);
+  IntakeRight.setVelocity(-rightIntakeSpeedPercent, percent);
   IntakeRight.spin(reverse);
 }
 
