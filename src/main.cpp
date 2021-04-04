@@ -71,6 +71,14 @@ void turnoffIntake() {
   IntakeRight.stop();
 }
 
+void nudgeLeftIntake() {
+  IntakeLeft.setPosition(IntakeLeft.position(degrees) + 10, degrees);
+}
+
+void nudgeRightIntake() {
+  IntakeLeft.setPosition(IntakeRight.position(degrees) + 10, degrees);
+}
+
 void testAuton() {
   // I made this assuming that the bot is facing south at the middle of home
   Drivetrain.driveFor(forward, 24, inches);
@@ -97,4 +105,7 @@ int main() {
   Controller1.ButtonUp.released(turnoffIntake);
   Controller1.ButtonDown.pressed(turnonIntakeReverse);
   Controller1.ButtonDown.released(turnoffIntake);
+
+  Controller1.ButtonY.pressed(nudgeLeftIntake);
+  Controller1.ButtonA.pressed(nudgeRightIntake);
 }
