@@ -72,11 +72,11 @@ void turnoffIntake() {
 }
 
 void nudgeLeftIntake() {
-  IntakeLeft.setPosition(IntakeLeft.position(degrees) + 10, degrees);
+  IntakeLeft.spinToPosition(IntakeLeft.position(degrees) + 10, degrees);
 }
 
 void nudgeRightIntake() {
-  IntakeLeft.setPosition(IntakeRight.position(degrees) + 10, degrees);
+  IntakeLeft.spinToPosition(IntakeRight.position(degrees) + 10, degrees);
 }
 
 void testAuton() {
