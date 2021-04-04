@@ -76,7 +76,7 @@ void nudgeLeftIntake() {
 }
 
 void nudgeRightIntake() {
-  IntakeLeft.spinToPosition(IntakeRight.position(degrees) + 10, degrees);
+  IntakeRight.spinToPosition(IntakeRight.position(degrees) + 10, degrees);
 }
 
 void testAuton() {
