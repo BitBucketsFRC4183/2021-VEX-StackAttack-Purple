@@ -10,10 +10,10 @@
 // ---- START VEXCODE CONFIGURED DEVICES ----
 // Robot Configuration:
 // [Name]               [Type]        [Port(s)]
-// Drivetrain           drivetrain    1, 10           
-// Controller1          controller                    
-// IntakeLeft           motor         3               
-// IntakeRight          motor         8               
+// Drivetrain           drivetrain    1, 10
+// Controller1          controller
+// IntakeLeft           motor         3
+// IntakeRight          motor         8
 // ---- END VEXCODE CONFIGURED DEVICES ----
 
 #include "vex.h"
@@ -21,37 +21,33 @@
 using namespace vex;
 
 void moveForward() {
-if(Controller1.Axis3.position()>0) {
-  Drivetrain.drive(forward);
-  Drivetrain.setDriveVelocity(50, percent);
+  if (Controller1.Axis3.position() > 0) {
+    Drivetrain.drive(forward);
+    Drivetrain.setDriveVelocity(50, percent);
   }
 
-else if(Controller1.Axis3.position()<0) {
-  Drivetrain.drive(forward);
-  Drivetrain.setDriveVelocity(-50, percent);
+  else if (Controller1.Axis3.position() < 0) {
+    Drivetrain.drive(forward);
+    Drivetrain.setDriveVelocity(-50, percent);
   }
 
-else {
-Drivetrain.stop();
+  else {
+    Drivetrain.stop();
+  }
 }
-}
-
-
 
 void turnRobot() {
-  if(Controller1.Axis1.position()>0) {
-  Drivetrain.turn(right);
+  if (Controller1.Axis1.position() > 0) {
+    Drivetrain.turn(right);
+  }
+
+  else if (Controller1.Axis1.position() < 0) {
+    Drivetrain.turn(left);
+  }
+
+  else
+    Drivetrain.stop();
 }
-
-else if(Controller1.Axis1.position()<0) {
-  Drivetrain.turn(left);
-}
-
-else
-Drivetrain.stop();
-}
-
-
 
 double leftIntakeSpeedPercent = 10.0;
 double rightIntakeSpeedPercent = 24.0 / 30 * leftIntakeSpeedPercent;
@@ -75,10 +71,8 @@ void turnoffIntake() {
   IntakeRight.stop();
 }
 
-
-
 void testAuton() {
-  //I made this assuming that the bot is facing south at the middle of home
+  // I made this assuming that the bot is facing south at the middle of home
   Drivetrain.driveFor(forward, 24, inches);
   Drivetrain.turnFor(left, 90, degrees);
   Drivetrain.driveFor(forward, 48, inches);
@@ -88,21 +82,19 @@ void testAuton() {
   Drivetrain.driveFor(forward, 48, inches);
 }
 
-
-
 int main() {
   // Initializing Robot Configuration. DO NOT REMOVE!
-vexcodeInit();
+  vexcodeInit();
 
-Drivetrain.setTurnVelocity(50, percent);
+  Drivetrain.setTurnVelocity(50, percent);
 
-Drivetrain.setDriveVelocity(50, percent);
+  Drivetrain.setDriveVelocity(50, percent);
 
-Controller1.Axis1.changed(turnRobot);
-Controller1.Axis3.changed(moveForward);
+  Controller1.Axis1.changed(turnRobot);
+  Controller1.Axis3.changed(moveForward);
 
-Controller1.ButtonUp.pressed(turnonIntake);
-Controller1.ButtonUp.released(turnoffIntake);
-Controller1.ButtonDown.pressed(turnonIntakeReverse);
-Controller1.ButtonDown.released(turnoffIntake);
+  Controller1.ButtonUp.pressed(turnonIntake);
+  Controller1.ButtonUp.released(turnoffIntake);
+  Controller1.ButtonDown.pressed(turnonIntakeReverse);
+  Controller1.ButtonDown.released(turnoffIntake);
 }
