@@ -71,6 +71,19 @@ void turnoffIntake() {
   IntakeRight.stop();
 }
 
+//intake buttons
+double leftIntakeDegreeIncrement = 30;
+double rightIntakeDegreeIncrement = 24;
+
+void IntakeUp() {
+  IntakeLeft.setPosition(leftIntakeDegreeIncrement, degrees);
+}
+
+void IntakeDown() {
+  IntakeRight.setPosition(rightIntakeDegreeIncrement, degrees);
+}
+
+//nudge intake
 void nudgeLeftIntake() {
   IntakeLeft.spinToPosition(IntakeLeft.position(degrees) + 10, degrees);
 }
@@ -108,4 +121,9 @@ int main() {
 
   Controller1.ButtonY.pressed(nudgeLeftIntake);
   Controller1.ButtonA.pressed(nudgeRightIntake);
+
+  IntakeLeft.setStopping(brake);
+  IntakeRight.setStopping(brake);
+  Controller1.ButtonX.pressed(IntakeUp);
+  Controller1.ButtonB.pressed(IntakeDown);
 }
