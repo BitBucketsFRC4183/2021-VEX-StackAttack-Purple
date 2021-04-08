@@ -72,17 +72,23 @@ void turnoffIntake() {
 }
 
 //intake buttons
+double leftPosition = 0;
+double rightPosition = 0;
 double leftIntakeDegreeIncrement = 30;
 double rightIntakeDegreeIncrement = 24;
 
 void IntakeUp() {
-  IntakeLeft.spinToPosition(IntakeLeft.position(degrees) + leftIntakeDegreeIncrement, degrees);
-  IntakeRight.spinToPosition((IntakeRight.position(degrees) - rightIntakeDegreeIncrement), degrees);
+  leftPosition += leftIntakeDegreeIncrement;
+  rightPosition -= rightIntakeDegreeIncrement;
+  IntakeLeft.spinToPosition(leftPosition, degrees, false);
+  IntakeRight.spinToPosition(rightPosition, degrees, false);
 }
 
 void IntakeDown() {
-  IntakeLeft.spinToPosition(IntakeLeft.position(degrees) - leftIntakeDegreeIncrement, degrees);
-  IntakeRight.spinToPosition((IntakeRight.position(degrees) + rightIntakeDegreeIncrement), degrees);
+  leftPosition -= leftIntakeDegreeIncrement;
+  rightPosition += rightIntakeDegreeIncrement;
+  IntakeLeft.spinToPosition(leftPosition, degrees, false);
+  IntakeRight.spinToPosition(rightPosition, degrees, false);
 }
 
 //nudge intake
