@@ -76,11 +76,13 @@ double leftIntakeDegreeIncrement = 30;
 double rightIntakeDegreeIncrement = 24;
 
 void IntakeUp() {
-  IntakeLeft.setPosition(leftIntakeDegreeIncrement, degrees);
+  IntakeLeft.setPosition(IntakeLeft.position(degrees) + leftIntakeDegreeIncrement, degrees);
+  IntakeRight.setPosition(-(IntakeRight.position(degrees) + rightIntakeDegreeIncrement), degrees);
 }
 
 void IntakeDown() {
-  IntakeRight.setPosition(rightIntakeDegreeIncrement, degrees);
+  IntakeRight.setPosition(IntakeRight.position(degrees) - rightIntakeDegreeIncrement, degrees);
+  IntakeLeft.setPosition(-(IntakeLeft.position(degrees) - rightIntakeDegreeIncrement), degrees);
 }
 
 //nudge intake
