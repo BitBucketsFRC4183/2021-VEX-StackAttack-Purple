@@ -102,11 +102,11 @@ void nudgeRightIntake() {
 
 void testAuton() {
   // I made this assuming that the bot is facing south at the middle of home
-  Drivetrain.driveFor(forward, 24, inches);
+  Drivetrain.driveFor(forward, 26, inches);
   Drivetrain.turnFor(left, 90, degrees);
-  Drivetrain.driveFor(forward, 36, inches);
+  Drivetrain.driveFor(forward, 32, inches);
   Drivetrain.turnFor(left, 90, degrees);
-  Drivetrain.driveFor(forward, 24, inches);
+  Drivetrain.driveFor(forward, 22, inches);
   Drivetrain.turnFor(left, 90, degrees);
   Drivetrain.driveFor(forward, 48, inches);
 }
