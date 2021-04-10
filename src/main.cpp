@@ -104,7 +104,7 @@ void testAuton() {
   // I made this assuming that the bot is facing south at the middle of home
   Drivetrain.driveFor(forward, 24, inches);
   Drivetrain.turnFor(left, 90, degrees);
-  Drivetrain.driveFor(forward, 48, inches);
+  Drivetrain.driveFor(forward, 36, inches);
   Drivetrain.turnFor(left, 90, degrees);
   Drivetrain.driveFor(forward, 24, inches);
   Drivetrain.turnFor(left, 90, degrees);
