@@ -115,6 +115,7 @@ int main() {
   // Initializing Robot Configuration. DO NOT REMOVE!
   vexcodeInit();
 
+  testAuton();
   Drivetrain.setTurnVelocity(50, percent);
 
   Drivetrain.setDriveVelocity(50, percent);
