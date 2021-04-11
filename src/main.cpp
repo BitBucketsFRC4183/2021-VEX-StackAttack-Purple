@@ -102,7 +102,7 @@ void nudgeRightIntake() {
   IntakeRight.spinToPosition(IntakeRight.position(degrees) + 10, degrees);
 }
 
-double rotateMultiplier = 1.05;
+double rotateMultiplier = 1.07;
 
 void testAuton() {
   // I made this assuming that the bot is facing south at the middle of home
