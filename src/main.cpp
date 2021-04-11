@@ -20,15 +20,17 @@
 
 using namespace vex;
 
+double driveSpeed = 37.5;
+
 void moveForward() {
   if (Controller1.Axis3.position() > 0) {
     Drivetrain.drive(forward);
-    Drivetrain.setDriveVelocity(50, percent);
+    Drivetrain.setDriveVelocity(driveSpeed, percent);
   }
 
   else if (Controller1.Axis3.position() < 0) {
     Drivetrain.drive(forward);
-    Drivetrain.setDriveVelocity(-50, percent);
+    Drivetrain.setDriveVelocity(-(driveSpeed), percent);
   }
 
   else {
