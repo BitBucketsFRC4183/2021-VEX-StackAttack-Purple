@@ -107,7 +107,7 @@ double rotateMultiplier = 1.07;
 void testAuton() {
   // I made this assuming that the bot is facing south at the middle of home
   Drivetrain.driveFor(forward, 26, inches);
-  Drivetrain.turnFor(left, 90 * rotateMultiplier, degrees);
+  Drivetrain.turnFor(left, 90 * 1.09, degrees);
   Drivetrain.driveFor(forward, 28, inches);
   Drivetrain.turnFor(left, 90 * rotateMultiplier, degrees);
   Drivetrain.driveFor(forward, 22, inches);
