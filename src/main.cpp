@@ -73,7 +73,7 @@ void turnoffIntake() {
   IntakeRight.stop();
 }
 
-//intake buttons
+// intake buttons
 double leftPosition = 0;
 double rightPosition = 0;
 double leftIntakeDegreeIncrement = 30;
@@ -93,7 +93,7 @@ void IntakeDown() {
   IntakeRight.spinToPosition(rightPosition, degrees, false);
 }
 
-//nudge intake
+// nudge intake
 void nudgeLeftIntake() {
   IntakeLeft.spinToPosition(IntakeLeft.position(degrees) + 10, degrees);
 }
@@ -105,14 +105,18 @@ void nudgeRightIntake() {
 double rotateMultiplier = 1.07;
 
 void testAuton() {
-  // I made this assuming that the bot is facing south at the middle of home
-  Drivetrain.driveFor(forward, 26, inches);
-  Drivetrain.turnFor(left, 90 * 1.09, degrees);
-  Drivetrain.driveFor(forward, 28, inches);
-  Drivetrain.turnFor(left, 90 * rotateMultiplier, degrees);
+  Drivetrain.driveFor(forward, 36, inches);
+  Drivetrain.turnFor(left, 45, degrees);
+  Drivetrain.driveFor(forward, 5, inches);
+  Drivetrain.turnFor(right, 40, degrees);
+  Drivetrain.driveFor(forward, 2, inches);
+  Drivetrain.driveFor(forward, -15, inches);
+  Drivetrain.turnFor(right, 90, degrees);
   Drivetrain.driveFor(forward, 22, inches);
-  Drivetrain.turnFor(left, 90 * rotateMultiplier, degrees);
-  Drivetrain.driveFor(forward, 48, inches);
+  Drivetrain.turnFor(right, 110, degrees);
+  Drivetrain.driveFor(forward, 32, inches);
+  Drivetrain.turnFor(right, 110, degrees);
+  Drivetrain.driveFor(forward, 26, inches);
 }
 
 int main() {
