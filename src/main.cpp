@@ -80,18 +80,22 @@ double rightPosition = 0;
 double leftIntakeDegreeIncrement = 30;
 double rightIntakeDegreeIncrement = 24;
 
-void IntakeUp() {
+void IntakeDown() {
+  std::cout<<"Intake Down Started"<<std::endl;
   leftPosition += leftIntakeDegreeIncrement;
   rightPosition -= rightIntakeDegreeIncrement;
   IntakeLeft.spinToPosition(leftPosition, degrees, false);
   IntakeRight.spinToPosition(rightPosition, degrees, false);
+  std::cout<<"Intake Down Ended"<<std::endl;
 }
 
-void IntakeDown() {
+void IntakeUp() {
+  std::cout<<"Intake Up Started"<<std::endl;
   leftPosition -= leftIntakeDegreeIncrement;
   rightPosition += rightIntakeDegreeIncrement;
   IntakeLeft.spinToPosition(leftPosition, degrees, false);
   IntakeRight.spinToPosition(rightPosition, degrees, false);
+  std::cout<<"Intake Up Ended"<<std::endl;
 }
 
 // nudge intake
@@ -106,25 +110,24 @@ void nudgeRightIntake() {
 double rotateMultiplier = 1.07;
 
 void testAuton() {
-  // Start facing Trash can drive to Trash can and drop off cube then walk the
-  // dog and return home for dinner
-  Drivetrain.driveFor(forward, 34, inches);
+  //Start facing Trash can drive to Trash can and drop off cube then walk the dog and return home for dinner
+  Drivetrain.driveFor(forward, 30, inches);
   Drivetrain.turnFor(left, 45, degrees);
-  Drivetrain.driveFor(forward, 8, inches);
+  Drivetrain.driveFor(forward, 6, inches);
   IntakeDown();
   IntakeDown();
   IntakeDown();
   wait(1, seconds);
-  std::cout << "Done waiting" << std::endl;
-  Drivetrain.driveFor(forward, -15, inches);
+  std::cout<<"Done waiting"<<std::endl;
+  Drivetrain.driveFor(forward, -13, inches);
   Drivetrain.turnFor(right, 40, degrees);
   Drivetrain.driveFor(forward, 1, inches);
   Drivetrain.turnFor(right, 90, degrees);
-  Drivetrain.driveFor(forward, 20, inches);
+  Drivetrain.driveFor(forward, 15, inches);
   Drivetrain.turnFor(right, 120, degrees);
-  Drivetrain.driveFor(forward, 31, inches);
+  Drivetrain.driveFor(forward, 25, inches);
   Drivetrain.turnFor(right, 110, degrees);
-  Drivetrain.driveFor(forward, 26, inches);
+  Drivetrain.driveFor(forward, 24, inches);
 }
 
 int main() {
