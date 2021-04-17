@@ -119,15 +119,15 @@ void testAuton() {
   IntakeDown();
   wait(1, seconds);
   std::cout<<"Done waiting"<<std::endl;
-  Drivetrain.driveFor(forward, -13, inches);
-  Drivetrain.turnFor(right, 40, degrees);
+  Drivetrain.driveFor(forward, -15, inches);
+  Drivetrain.turnFor(right, 45, degrees);
   Drivetrain.driveFor(forward, 1, inches);
   Drivetrain.turnFor(right, 90, degrees);
-  Drivetrain.driveFor(forward, 15, inches);
-  Drivetrain.turnFor(right, 120, degrees);
-  Drivetrain.driveFor(forward, 25, inches);
-  Drivetrain.turnFor(right, 110, degrees);
-  Drivetrain.driveFor(forward, 24, inches);
+  Drivetrain.driveFor(forward, 5.5, inches);
+  Drivetrain.turnFor(right, 210, degrees);
+  Drivetrain.driveFor(forward, 20, inches);
+  Drivetrain.turnFor(right, 150, degrees);
+  Drivetrain.driveFor(forward, 20, inches);
 }
 
 int main() {
