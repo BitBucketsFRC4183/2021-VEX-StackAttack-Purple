@@ -21,7 +21,7 @@
 
 using namespace vex;
 
-double driveSpeed = 50;
+double driveSpeed = 40;
 
 void moveForward() {
   if (Controller1.Axis3.position() > 0) {
@@ -123,10 +123,10 @@ void testAuton() {
   Drivetrain.turnFor(right, 45, degrees);
   Drivetrain.driveFor(forward, 1, inches);
   Drivetrain.turnFor(right, 90, degrees);
-  Drivetrain.driveFor(forward, 5.5, inches);
-  Drivetrain.turnFor(right, 210, degrees);
-  Drivetrain.driveFor(forward, 20, inches);
-  Drivetrain.turnFor(right, 150, degrees);
+  Drivetrain.driveFor(forward, 10, inches);
+  Drivetrain.turnFor(right, 190, degrees);
+  Drivetrain.driveFor(forward, 25, inches);
+  Drivetrain.turnFor(right, 170, degrees);
   Drivetrain.driveFor(forward, 20, inches);
 }
 
